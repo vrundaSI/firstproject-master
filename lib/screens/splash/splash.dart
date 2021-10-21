@@ -7,23 +7,26 @@ import 'package:flutter/material.dart';
 class SplashScreen extends StatefulWidget {
   static String route = "SplashScreen";
 
+  const SplashScreen({Key key}) : super(key: key);
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
   startTime() async {
-    var _duration = new Duration(seconds: 1);
-    return new Timer(_duration, navigationPage);
+    var _duration = const Duration(seconds: 1);
+    return Timer(_duration, navigationPage);
   }
 
   void navigationPage() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SignUp()),
+      MaterialPageRoute(builder: (context) => const SignUp()),
     );
   }
 
+  @override
   void initState() {
     super.initState();
     startTime();

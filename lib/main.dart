@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -20,11 +20,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
       routes: {
-        SplashScreen.route : (context) => SplashScreen(),
-        SignUp.route : (context) => SignUp(),
-        toDoEyHome.route :(context)=>toDoEyHome()
+        SplashScreen.route : (context) => const SplashScreen(),
+        SignUp.route : (context) => const SignUp(),
+        ToDoEyHome.route :(context)=>const ToDoEyHome()
 
 
       },

@@ -1,11 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firstproject/custom_widgets/custom_button.dart';
 import 'package:firstproject/custom_widgets/custom_textfield.dart';
 import 'package:firstproject/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:firstproject/screens/todoey/todoey_homepage.dart';
 
+
+
+
 class SignUp extends StatefulWidget {
   static String route = "SignUp";
+
+  const SignUp({Key key}) : super(key: key);
 
 
   @override
@@ -18,6 +24,7 @@ class _SignUpState extends State<SignUp> {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +47,7 @@ class _SignUpState extends State<SignUp> {
                 child: Container(
                   // height: 420,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(50),topRight: Radius.circular(50))
                   ),
@@ -52,7 +59,7 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(height: MediaQuery.of(context).size.height*0.1,),
                         Column(mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
+                          children: const [
                             Text("SignIn to Project",style: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold
                             ),),
@@ -62,7 +69,7 @@ class _SignUpState extends State<SignUp> {
                             ),),
                           ],
                         ),
-                        Spacer(),
+                        const Spacer(),
                         CustomTextField(isValue: false,
                           title:" ",
                           controller: emailController,
@@ -70,7 +77,7 @@ class _SignUpState extends State<SignUp> {
 
  obSecure: false,                         keyboardType: TextInputType.text,
                         ),
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
                         CustomTextField(isValue: false,
                           title:" ",
                           obSecure: true,
@@ -87,14 +94,15 @@ class _SignUpState extends State<SignUp> {
                             CustomButton(
                              icon: Icons.forward_outlined,
                               onClick: () async{
-                                Navigator.of(context).pushNamed(toDoEyHome.route);
+
+                                Navigator.of(context).pushNamed(ToDoEyHome.route);
                               },
                             ),
                           ],
                         ),
-                        Spacer(),
+                        const Spacer(),
 
-                        SizedBox(height: 15,)
+                        const SizedBox(height: 15,)
 
                       ],
                     ),

@@ -5,15 +5,17 @@ import 'package:firstproject/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 
-class toDoEyHome extends StatefulWidget {
+class ToDoEyHome extends StatefulWidget {
   static String route = "toDoeyHome";
+
+  const ToDoEyHome({Key key}) : super(key: key);
 
 
   @override
-  _toDoEyHomeState createState() => _toDoEyHomeState();
+  _ToDoEyHomeState createState() => _ToDoEyHomeState();
 }
 
-class _toDoEyHomeState extends State<toDoEyHome> {
+class _ToDoEyHomeState extends State<ToDoEyHome> {
 
 
 
@@ -46,7 +48,7 @@ class _toDoEyHomeState extends State<toDoEyHome> {
                           child: Icon(Icons.list,color: MyColors.blue,),
                         )),
 
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                     Text("Todoey",style: TextStyle(color: MyColors.white,fontSize: 40,fontWeight: FontWeight.bold),)
                     ,Text("12 Tasks",style: TextStyle(color: MyColors.white,fontSize: 17),)
 
@@ -60,7 +62,7 @@ class _toDoEyHomeState extends State<toDoEyHome> {
               child: Container(
                 // height: 420,
                 width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(50),topRight: Radius.circular(50))
                 ),
@@ -76,7 +78,7 @@ class _toDoEyHomeState extends State<toDoEyHome> {
                           stream: FirebaseFirestore.instance.collection('Data').snapshots(),
                           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                             if (!snapshot.hasData) {
-                              return Center(
+                              return const Center(
                                 child: CircularProgressIndicator(),
                               );
                             }
@@ -85,12 +87,12 @@ class _toDoEyHomeState extends State<toDoEyHome> {
                               children: snapshot.data.docs.map((document) {
                                 return Row(
                                   children: [
-                                    Container(width: 200,
+                                    SizedBox(width: 200,
                                       child: Center(child: Text(document['text'])),
 
                                     ),
                                     Checkbox(
-                                      value: this.value,
+                                      value: value,
                                       onChanged: (bool value) {
                                         setState(() {
                                           this.value = value;
@@ -146,7 +148,7 @@ class _toDoEyHomeState extends State<toDoEyHome> {
                                   padding: const EdgeInsets.all(30.0),
                                   child:  TextField(
                                    controller: addTaskController,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: Colors.blue),
                                       ),
@@ -168,7 +170,7 @@ class _toDoEyHomeState extends State<toDoEyHome> {
                                             FirebaseFirestore.instance
                                                 .collection('Data')
                                                 .add({'text': addTaskController.text.toString()});
-                                            globalData.saveTaskValue = addTaskController.text;
+                                            GlobalData.saveTaskValue = addTaskController.text;
                                             setState(() {
 
                                             });

@@ -1,6 +1,6 @@
 
 
-class globalData{
+class GlobalData{
 
   static String saveTaskValue;
 
